@@ -1,0 +1,31 @@
+Name:                blaze-amf
+Version:             0.0.0.0
+Synopsis:            AMF combinator library
+Description:
+    A  blazingly fast AMF(<http://en.wikipedia.org/wiki/Additive_Manufacturing_File_Format>) combinator 
+    library for the Haskell programming language. Usage is mostly identical to that of blaze-html and
+    blaze-svg.
+Homepage:            https://github.com/matthewSorensen/blaze-amf
+Bug-Reports:         https://github.com/matthewSorensen/blaze-amf/issues
+License:             BSD3
+License-file:        LICENSE
+Author:              Matthew Sorensen
+Maintainer:          mdsoren@u.washington.edu
+Category:            Text
+Build-type:          Simple
+Extra-source-files:  README.md
+Cabal-version:       >=1.2
+Library
+  -- Modules exported by the library.
+  -- Exposed-modules:     
+  
+  Build-depends:       
+    base            >= 4  && < 5,
+    blaze-markup    >= 0.5 && < 0.6
+  
+  -- Modules not exported by this package.
+  -- Other-modules:       
+  
+Source-repository head
+  Type:     git
+  Location: https://github.com/matthewSorensen/blaze-amf.git
