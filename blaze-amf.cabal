@@ -16,16 +16,22 @@ Build-type:          Simple
 Extra-source-files:  README.md
 Cabal-version:       >=1.2
 Library
-  -- Modules exported by the library.
-  -- Exposed-modules:     
-  
+
+  Hs-Source-Dirs: src
+
+  Exposed-modules:     
+--    Text.Blaze.Amf,
+--    Text.Blaze.Amf.Elements,
+--    Text.Blaze.Amf.Attributes,
+--    Text.Blaze.Amf.Metadata
+
   Build-depends:       
     base            >= 4  && < 5,
     blaze-markup    >= 0.5 && < 0.6
   
-  -- Modules not exported by this package.
-  -- Other-modules:       
-  
+  Other-modules:       
+    Text.Blaze.Amf.Template 		       
+
 Source-repository head
   Type:     git
   Location: https://github.com/matthewSorensen/blaze-amf.git
