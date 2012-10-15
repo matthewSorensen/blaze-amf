@@ -21,8 +21,8 @@ Library
 
   Exposed-modules:     
 --    Text.Blaze.Amf,
-    Text.Blaze.Amf.Elements
---    Text.Blaze.Amf.Attributes,
+    Text.Blaze.Amf.Elements,
+    Text.Blaze.Amf.Attributes
 --    Text.Blaze.Amf.Metadata
 
   Build-depends:       

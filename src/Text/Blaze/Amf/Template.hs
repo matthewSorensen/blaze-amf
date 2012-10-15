@@ -2,21 +2,8 @@
 module Text.Blaze.Amf.Template where
 
 import Language.Haskell.TH
-
 import Text.Blaze.Internal
-
--- so we need to generate generic elements for:
-
--- amf, object, color, r,g b, a, mesh, vertices, vertex, coordinates, x y z, normal, edge
--- d{x,y,z}{1,2}
--- n{x,y,z}
--- volume
--- triangle
--- v{1,2,3}
--- texture
--- material composite constellation instance delta{x,y,z}
--- r{x,y,z}
--- metadata
+import Data.Char
 
 lit = return . LitE . StringL
 
@@ -31,11 +18,19 @@ mkElement n = do
 
 elements = fmap concat . mapM mkElement
 
+attributeAs :: String -> String -> Q [Dec]
+attributeAs attrName haskName = do
+  let name = mkName haskName
+  t <- name `sigD` [t| AttributeValue -> Attribute |]
+  custom <- id [e| customAttribute |]
+  return [t,
+          FunD name [Clause [] (NormalB $ AppE custom $ LitE $ StringL attrName) []],
+          PragmaD $ InlineP name $ InlineSpec True True Nothing]
 
+attributes :: [String] -> Q [Dec]
+attributes = fmap concat . mapM mkAttr
+    where mkAttr n = attributeAs n $ map (replace . toLower) n
+          replace ' ' = '_'
+          replace '-' = '_'
+          replace x   = x
 
--- special meta-data combinators for Name, Description, Url, etc...
-
--- Attributes for:
--- unit id materialid type width height depth objectid
-
--- profile gets its own combinators taking a colorspace data type
