@@ -1,8 +1,6 @@
-*Warning: at the moment, this library implements draft 0.47 of ASTM F2915 - 12. Support for said standard will be implemented once I actually get a copy of it.*
-
 # blaze-amf
 
-A  blazingly fast [AMF](http://en.wikipedia.org/wiki/Additive_Manufacturing_File_Format) combinator library for the Haskell programming language. Usage is mostly identical to that of blaze-html and blaze-svg.
+A  blazingly fast [AMF](http://en.wikipedia.org/wiki/Additive_Manufacturing_File_Format) 1.1 combinator library for the Haskell programming language. Usage is mostly identical to that of blaze-html and blaze-svg.
 
 ## Documentation
 

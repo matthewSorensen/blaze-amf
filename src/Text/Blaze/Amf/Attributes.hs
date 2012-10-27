@@ -9,19 +9,7 @@ import Language.Haskell.TH
 $(attributeAs "id" "id_")
 $(attributeAs "type" "type_")
 $(attributes ["materialid","width","height","depth","objectid"])
-
-data ColorSpace = SRGB | AdobeRGB | WideGamutRGB | CIERGB | CIELAB | CIEXYZ
-                  deriving(Show,Eq)
-
-instance ToValue ColorSpace where
-    toValue = preEscapedToValue
-
-    preEscapedToValue SRGB = "sRGB"
-    preEscapedToValue AdobeRGB = "AdobeRGB" 
-    preEscapedToValue WideGamutRGB = "Wide-Gamut-RGB" 
-    preEscapedToValue CIERGB = "CIERGB"
-    preEscapedToValue CIELAB = "CIELAB"
-    preEscapedToValue CIEXYZ = "CIEXYZ"
+$(attributes ["rtexid","gtexid","btexid","atexid","version"])
 
 data Unit = Inch | Millimeter | Meter | Feet | Micron
             deriving(Show,Eq)
@@ -37,6 +25,3 @@ instance ToValue Unit where
 
 unit :: Unit -> Attribute
 unit = customAttribute "unit" . preEscapedToValue
-
-profile :: ColorSpace -> Attribute
-profile = customAttribute "profile" . preEscapedToValue
