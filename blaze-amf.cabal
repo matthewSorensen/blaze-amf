@@ -20,7 +20,7 @@ Library
   Hs-Source-Dirs: src
 
   Exposed-modules:     
---    Text.Blaze.Amf,
+    Text.Blaze.Amf,
     Text.Blaze.Amf.Elements,
     Text.Blaze.Amf.Attributes,
     Text.Blaze.Amf.Metadata
@@ -29,6 +29,8 @@ Library
     base            >= 4  && < 5,
     blaze-markup    >= 0.5 && < 0.6,
     text,
+    bytestring,
+    zip-archive,
     template-haskell
   
   Other-modules:       
